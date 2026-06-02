@@ -24,9 +24,16 @@
 **Dependencies**
 - Never install packages without asking — check native API or existing deps first
 
-**Design**
-- 70% primary background / 20% secondary surface / 10% accent — applies everywhere
-- Font hierarchy: 80% primary typeface / 20% secondary or accent — applied to all typographic decisions
+**Design System** — single source of truth for all visual decisions:
+- **Colors**: `text-neutral-800` (primary text), `bg-zinc-300` (primary background), `bg-gray-300` (secondary surface), `border-orange-300` (accent). Ratio: 70% primary background / 20% secondary surface / 10% accent.
+- **Fonts**: `"JetBrains Mono", monospace` (primary, body), `"Bodoni Moda", serif` (secondary, accent). Ratio: 80% primary / 20% secondary.
+- **Spacing** — applies to every component:
+  - Section outer padding: `p-5 md:p-6 lg:p-8` (20px / 24px / 32px)
+  - Between major blocks inside section: `gap-y-3.5` (14px)
+  - Between related but distinct content blocks: `gap-2.5` (10px)
+  - Between closely related elements (same category): `gap-1.5` (6px)
+  - Inside a single label / identity unit: `gap-1` (4px)
+  - No padding on inner content containers unless a distinct visual surface requires it — prefer native gaps between items.
 
 ---
 
@@ -41,8 +48,9 @@ Ask if anything was left unfinished from the previous session. Never assume cont
 1. Plan with reasoning before any code — name approach, affected files, tradeoffs
 2. One component / one concern at a time
 3. Ask when unclear — never guess
-4. Every feature complete (types, logic, edge cases) before moving to next
+4. Every feature complete (types, logic, edge cases) and verified before moving to next
 5. No new packages without explicit approval
+6. `npm run lint` after each task; `npm run build` only before commits or on explicit request
 
 ---
 
@@ -83,7 +91,7 @@ May think and reason internally in English — only the communication between us
 1. Describe what is happening — before touching code
 2. One fix at a time, with reasoning
 3. Never apply multiple speculative fixes at once
-4. State explicitly what changed and what to verify
+4. State explicitly what changed and what to verify — `npm run lint` for micro-changes, `npm run build` before commits
 5. If not confident — say so
 
 ---
@@ -101,14 +109,14 @@ May think and reason internally in English — only the communication between us
 - **Framework**: React 19 with Vite
 - **Language**: TypeScript 6.0
 - **Styling**: Tailwind CSS 4.x (via `@tailwindcss/vite`)
-- **Planned**: PixiJs, GSAP for animations
-- **Testing**: none yet
+- **Animation**: GSAP 3.x (with `@gsap/react`), PixiJs planned
+- **Testing**: none yet — when added, run after changes touching related code
 
 ## Commands
 
-- `npm run dev` — start dev server
-- `npm run build` — typecheck (`tsc -b`) then build
-- `npm run lint` — run ESLint
+- `npm run dev` — start dev server (development)
+- `npm run build` — typecheck (`tsc -b`) then build (before commits)
+- `npm run lint` — run ESLint (quick feedback after changes)
 - `npm run preview` — preview production build
 
 ---

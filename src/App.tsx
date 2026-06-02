@@ -1,7 +1,7 @@
-import About from "./about/About";
-import Footer from "./footer/Footer";
-import Hero from "./hero/Hero";
-import Works from "./works/Works";
+import About from "@/components/about/About";
+import Footer from "@/components/footer/Footer";
+import Hero from "@/components/hero/Hero";
+import Works from "@/components/works/Works";
 
 export default function App() {
   return (

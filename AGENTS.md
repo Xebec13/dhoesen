@@ -25,14 +25,15 @@
 - Never install packages without asking — check native API or existing deps first
 
 **Design System** — single source of truth for all visual decisions:
-- **Colors**: `text-neutral-800` (primary text), `bg-zinc-300` (primary background), `bg-gray-300` (secondary surface), `border-orange-300` (accent). Ratio: 70% primary background / 20% secondary surface / 10% accent.
+- **Colors**: `text-neutral-800` (primary text), `bg-zinc-300` (primary background), `bg-gray-300` (secondary surface). Ratio: 60% primary background / 30% secondary surface / 10% accent.
 - **Fonts**: `"JetBrains Mono", monospace` (primary, body), `"Bodoni Moda", serif` (secondary, accent). Ratio: 80% primary / 20% secondary.
 - **Spacing** — applies to every component:
-  - Section outer padding: `p-5 md:p-6 lg:p-8` (20px / 24px / 32px)
-  - Between major blocks inside section: `gap-y-3.5` (14px)
-  - Between related but distinct content blocks: `gap-2.5` (10px)
-  - Between closely related elements (same category): `gap-1.5` (6px)
-  - Inside a single label / identity unit: `gap-1` (4px)
+  - Section outer padding (horizontal): `px-4 md:px-6 lg:px-8`.
+  - Between major section parts: `gap-4`
+  - Between major blocks inside section: `gap-3`
+  - Between related but distinct content blocks: `gap-2`
+  - Between closely related elements: `gap-1`
+  - Directional gaps (`gap-x`/`gap-y`): main flow direction uses the standard gap value, cross direction uses one level lower.
   - No padding on inner content containers unless a distinct visual surface requires it — prefer native gaps between items.
 
 ---
@@ -127,7 +128,7 @@ May think and reason internally in English — only the communication between us
 
 **Tailwind**: max 10 utility classes per element. Exceeded → extract component, discuss. Order: layout → box model → typography → visual → interactive. No arbitrary values without discussion.
 
-**Components**: PascalCase, one per file. If used in two places → abstract it.
+**Animation selectors (`data-animate`)**: Every GSAP animation must target elements via `data-animate` attributes, never CSS classes or HTML tags. The `Animated*` wrapper component receives a single `containerRef` (scoping root) and queries elements with `containerRef.current.querySelector("[data-animate='<name>']")` (singular) or `querySelectorAll(...)` (collections). The paired `*Section.tsx` component marks the target elements with `data-animate="<name>"` in JSX. Allowed values are per-component and must be agreed before implementation — no magic strings outside the component pair. Exceptions: ScrollTrigger triggers use `containerRef.current` directly (never `data-animate`), and refs are only used when GSAP needs a direct element reference (e.g. SplitText target).
 
 **Git commits**: `<type>(<scope>): <imperative description>` — `feat | fix | refactor | style | test | chore | docs`. One logical change per commit. Every commit leaves the project working.
 

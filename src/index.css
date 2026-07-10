@@ -1,14 +1,24 @@
-@import url(https://fonts.googleapis.com/css?family=Bodoni+Moda:regular,500,600,700,800,900,italic,500italic,600italic,700italic,800italic,900italic);
 @import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
-
 @import "tailwindcss";
 
-.font-bodoni {
-  font-family: "Bodoni Moda", serif;
+@theme {
+  --color-old-lace-50: #fdf5e6;
+  --color-shark-900: #242424;
+  --color-shark-700: #484848;
+  --color-mauvelous-300: #f497ad;
+  --color-mauvelous-400: #f27b9a;
+  --color-mauvelous-500: #f04a80;
+}
+html {
+  overscroll-behavior: none;
+}
+body {
+  @apply text-shark-900 bg-shark-900;
+  background: url('assets/bg.png');
+  font-family: "JetBrains Mono", monospace;
+  
 }
 
-
-body {
-  @apply bg-zinc-300 text-neutral-800;
-  font-family: "JetBrains Mono", monospace;
+.font-cormorant {
+  font-family: "Cormorant Garamond", serif;
 }

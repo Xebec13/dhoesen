@@ -8,7 +8,7 @@ export interface WorksData {
 }
 
 export const worksData: WorksData = {
-  title: "projekty",
+  title: "prace",
   items: [
     { title: "Projekt" },
     { title: "Projekt" },

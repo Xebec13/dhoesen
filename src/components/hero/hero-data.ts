@@ -1,13 +1,11 @@
-import heroImg from "@/assets/dh.webp";
-
 export interface HeroData {
-  subtitle: string;
-  keywords: string[];
-  imgSrc: string;
+  title: string[];
+  subtitle: string[];
+  leadTitle: string;
 }
 
 export const heroData: HeroData = {
-  subtitle: "zorientowany na",
-  keywords: ["Creative", "Design", "Web", "Development", "Motion", "UI/UX", "Strategia", "Produkcja"],
-  imgSrc: heroImg,
+  title: ["cześć", "projektuje", "interaktywne", "minimalistyczne", "strony dla firm."],
+  subtitle: ["creative", "design", "web", "development", "motion", "ui/ux","ai", "strategia", "produkcja"],
+  leadTitle: "specjalizuje sie w",
 };

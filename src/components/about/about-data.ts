@@ -4,13 +4,15 @@ export interface AboutData {
   imgSrc: string;
   name: string;
   role: string;
-  description: string;
+  description: [string, string];
 }
 
 export const aboutData: AboutData = {
   imgSrc: aboutImg,
   name: "Dawid Hoesen",
   role: "Creative Developer",
-  description:
-    "Tworzę interaktywne, pełne dynamicznych animacji strony i aplikacje webowe. Łączę zaawansowany kod z psychologicznym podejściem do doświadczeń użytkownika.",
+  description: [
+    "Tworzę interfejsy oparte na ruchu i dynamice.",
+    "Łączę zaawansowany kod z psychologicznym podejściem do doświadczeń użytkownika.",
+  ],
 };
